@@ -1,24 +1,13 @@
-<html>
-    <head>
-        <title> Inspiracja</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Blog Inspiracja</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
+{% block content %}
     {% for post in posts %}
-        <div>
-            <p>opublikowany: {{ post.published_date }}</p>
-            <h2><a href="">{{ post.title }}</a></h2>
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
-
-        <div>
-            <p>opublikowany: 9.06.2016, 12:45</p>
-            <h2><a href="">Mój drugi wpis</a></h2>
-            <p>Przewodnik po Django i Pythonie. Proste wprowadzenie do tych technlogii.</p>
-        </div>
-    </body>
-</html>
+{% endblock content %}
