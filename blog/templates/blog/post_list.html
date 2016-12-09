@@ -7,11 +7,13 @@
             <h1><a href="">Blog Inspiracja</a></h1>
         </div>
 
+    {% for post in posts %}
         <div>
-            <p>opublikowany: 9.12.2016, 12:15</p>
-            <h2><a href="">Mój pierwszy wpis</a></h2>
-            <p>Blog ten opisuje różne zagdnienia z dziedziny programowania i poszczególne aspekty informatyczne.</p>
+            <p>opublikowany: {{ post.published_date }}</p>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
+    {% endfor %}
 
         <div>
             <p>opublikowany: 9.06.2016, 12:45</p>
